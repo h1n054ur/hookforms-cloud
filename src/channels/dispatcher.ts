@@ -72,7 +72,7 @@ export async function dispatchNotifications(
               method: payload.method,
               headers: payload.headers,
               body: payload.body,
-            }).catch(() => {}),
+            }).catch((err) => console.error(`Discord dispatch failed for channel ${channel.id}:`, err)),
           );
           break;
         }
@@ -84,7 +84,7 @@ export async function dispatchNotifications(
               method: payload.method,
               headers: payload.headers,
               body: payload.body,
-            }).catch(() => {}),
+            }).catch((err) => console.error(`Slack dispatch failed for channel ${channel.id}:`, err)),
           );
           break;
         }
@@ -96,7 +96,7 @@ export async function dispatchNotifications(
               method: payload.method,
               headers: payload.headers,
               body: payload.body,
-            }).catch(() => {}),
+            }).catch((err) => console.error(`Teams dispatch failed for channel ${channel.id}:`, err)),
           );
           break;
         }
@@ -108,7 +108,7 @@ export async function dispatchNotifications(
               method: payload.method,
               headers: payload.headers,
               body: payload.body,
-            }).catch(() => {}),
+            }).catch((err) => console.error(`Telegram dispatch failed for channel ${channel.id}:`, err)),
           );
           break;
         }
@@ -120,7 +120,7 @@ export async function dispatchNotifications(
               method: payload.method,
               headers: payload.headers,
               body: payload.body,
-            }).catch(() => {}),
+            }).catch((err) => console.error(`Ntfy dispatch failed for channel ${channel.id}:`, err)),
           );
           break;
         }
@@ -132,7 +132,7 @@ export async function dispatchNotifications(
               method: payload.method,
               headers: payload.headers,
               body: payload.body,
-            }).catch(() => {}),
+            }).catch((err) => console.error(`Webhook dispatch failed for channel ${channel.id}:`, err)),
           );
           break;
         }
@@ -170,7 +170,7 @@ export async function dispatchNotifications(
                 body: htmlBody,
                 sender_name: context.senderName,
                 inbox_id: inbox.id,
-              }),
+              }).catch((err) => console.error(`Email queue send failed for ${to} on channel ${channel.id}:`, err)),
             );
           }
           break;
